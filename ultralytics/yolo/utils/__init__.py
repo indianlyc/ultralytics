@@ -540,7 +540,7 @@ def get_user_config_dir(sub_dir='Ultralytics'):
     return path
 
 
-USER_CONFIG_DIR = Path(os.getenv('YOLO_CONFIG_DIR', get_user_config_dir()))  # Ultralytics settings dir
+USER_CONFIG_DIR = Path(os.getenv('YOLO_CONFIG_DIR') if os.getenv('YOLO_CONFIG_DIR', None) is not None else get_user_config_dir()))  # Ultralytics settings dir
 SETTINGS_YAML = USER_CONFIG_DIR / 'settings.yaml'
 
 
